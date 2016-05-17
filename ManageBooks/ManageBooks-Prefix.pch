@@ -1,0 +1,19 @@
+//
+//  ManageBooks-Prefix.phc.pch
+//  ManageBooks
+//
+//  Created by xiushanfan on 16/5/16.
+//  Copyright © 2016年 Frank. All rights reserved.
+//
+
+#ifndef ManageBooks_Prefix_phc_pch
+#define ManageBooks_Prefix_phc_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ModelHeaders.h"
+#import "UtilityHeaders.h"
+#import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
+
+#endif /* ManageBooks_Prefix_phc_pch */
