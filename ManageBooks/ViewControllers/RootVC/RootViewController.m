@@ -30,6 +30,7 @@
     AuthViewController *authVC;
     UINavigationController *authNav;
     UIButton *authButton;
+    UIImageView *authIV;
     UITableView *bookListTV;
     NSMutableArray *bookList;
     
@@ -54,7 +55,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor  = [UIColor greenColor];
+    self.navigationController.navigationBar.barTintColor  = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
@@ -64,15 +65,23 @@
     segmentControl.selectedSegmentIndex = 0;
     self.navigationItem.titleView = segmentControl;
     
-    authButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    authButton = [UIButton buttonWithType:UIButtonTypeSystem];
     authButton.frame = CGRectMake((SCREEN_WIDTH - 200)/2 , 200, 200, 60);
     [authButton setTitle:@"豆瓣授权" forState:UIControlStateNormal];
+    [authButton setTitleColor:[UIColor lvchen] forState:UIControlStateNormal];
     [authButton addTarget:self action:@selector(doubanAuth:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:authButton];
+    authIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"douban_icon"]];
+    authIV.frame = CGRectMake((SCREEN_WIDTH - 48)/2, authButton.top - 48 - 20, 48, 48);
+    [self.view addSubview:authIV];
+    
     
     bookListTV = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     bookListTV.delegate = self;
     bookListTV.dataSource = self;
+    bookListTV.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    bookListTV.separatorColor = [UIColor lightGrayColor];
+    bookListTV.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:bookListTV];
     bookListTV.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 }

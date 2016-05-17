@@ -22,11 +22,18 @@
 
 - (void)viewDidLoad {
     self.title = @"豆瓣授权页面";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelAuth:)];
     NSString *url = [UrlBuilder urlWithType:kDBAuth andDict:[AuthDataController authParamDict]];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     webView.delegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     [self.view addSubview:webView];
+}
+
+- (void)cancelAuth:(UIBarButtonItem *)barButtonItem {
+    if ([self.delegate respondsToSelector:@selector(finishedGetToken:)]) {
+        [self.delegate finishedGetToken:nil];
+    }
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

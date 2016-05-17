@@ -14,11 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - ChineseColor (0.0.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - ChineseColor (~> 0.0.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  ChineseColor: 0eb0934905e48422e5d86ca66603ce2a6405c489
 
 COCOAPODS: 0.39.0

@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *binding;
 @property (nonatomic, strong) NSArray *translator;
 @property (nonatomic, strong) NSString *catalog;
-@property (nonatomic, strong) NSString *pages;
+@property (nonatomic, strong) NSString *pages;          //页数.
 @property (nonatomic, strong) BImageModel *images;
 @property (nonatomic, strong) NSString *alt;
 @property (nonatomic, strong) NSString *bookId;

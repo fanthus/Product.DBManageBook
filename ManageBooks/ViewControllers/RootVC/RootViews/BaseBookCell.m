@@ -39,9 +39,11 @@
         self.titleLabel.top = kTopMargin;
         
         self.authorLabel = [labelArray objectAtIndex:1];
+        self.authorLabel.textColor = [UIColor zijiang];
         self.authorLabel.top = self.titleLabel.bottom + 5;
         
         self.priceLabel = [labelArray objectAtIndex:2];
+        self.priceLabel.textColor = [UIColor baolan];
         self.priceLabel.top = self.authorLabel.bottom + 5;
     }
     return self;

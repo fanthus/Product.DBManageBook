@@ -15,5 +15,6 @@
 #import "UtilityHeaders.h"
 #import <AFNetworking.h>
 #import <UIKit+AFNetworking.h>
+#import <UIColor+ChineseColor.h>
 
 #endif /* ManageBooks_Prefix_phc_pch */
