@@ -10,8 +10,10 @@
 #ifndef ViewControllerHeaders_h
 #define ViewControllerHeaders_h
 
+#import "BookDetailVC.h"
 #import "RootViewController.h"
 #import "AuthViewController.h"
+
 
 
 #endif /* ViewControllerHeaders_h */

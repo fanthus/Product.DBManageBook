@@ -10,6 +10,7 @@
 #import "AuthViewController.h"
 #import "RootDataController.h"
 #import "BaseBookCell.h"
+#import "BookDetailVC.h"
 #import <AFNetworking.h>
 
 #define kAccessTokenKey     @"access_token"
@@ -74,7 +75,6 @@
     authIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"douban_icon"]];
     authIV.frame = CGRectMake((SCREEN_WIDTH - 48)/2, authButton.top - 48 - 20, 48, 48);
     [self.view addSubview:authIV];
-    
     
     bookListTV = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     bookListTV.delegate = self;
@@ -164,7 +164,9 @@
 #pragma mark - UITableViewDelegate 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    UserBookModel *uBookModel = (UserBookModel *)[bookList objectAtIndex:indexPath.row];
+    BookDetailVC *bookDetailVC = [[BookDetailVC alloc] initWithBookModel:uBookModel];
+    [self.navigationController pushViewController:bookDetailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,10 +11,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "ModelHeaders.h"
-#import "UtilityHeaders.h"
 #import <AFNetworking.h>
 #import <UIKit+AFNetworking.h>
+#import <UIColor+RandomColors.h>
 #import <UIColor+ChineseColor.h>
+#import "ModelHeaders.h"
+#import "ViewControllerHeaders.h"
+#import "UtilityHeaders.h"
+
 
 #endif /* ManageBooks_Prefix_phc_pch */

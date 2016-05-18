@@ -48,6 +48,8 @@
 		F550D3F41CEB288D00200EF4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F550D3E41CEB288D00200EF4 /* Icon@2x.png */; };
 		F550D3F51CEB288D00200EF4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F550D3E51CEB288D00200EF4 /* iTunesArtwork */; };
 		F550D3F61CEB288D00200EF4 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = F550D3E61CEB288D00200EF4 /* iTunesArtwork@2x */; };
+		F550D3FB1CEC159C00200EF4 /* BookDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3FA1CEC159C00200EF4 /* BookDetailVC.m */; };
+		F550D3FF1CEC15C800200EF4 /* BookDetailDC.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3FE1CEC15C800200EF4 /* BookDetailDC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,10 @@
 		F550D3E41CEB288D00200EF4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F550D3E51CEB288D00200EF4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		F550D3E61CEB288D00200EF4 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		F550D3F91CEC159C00200EF4 /* BookDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailVC.h; sourceTree = "<group>"; };
+		F550D3FA1CEC159C00200EF4 /* BookDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailVC.m; sourceTree = "<group>"; };
+		F550D3FD1CEC15C800200EF4 /* BookDetailDC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailDC.h; sourceTree = "<group>"; };
+		F550D3FE1CEC15C800200EF4 /* BookDetailDC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailDC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +279,7 @@
 			children = (
 				F550D38D1CE9B02C00200EF4 /* ViewControllerHeaders.h */,
 				F550D3C11CE9E07C00200EF4 /* RootVC */,
+				F550D3F81CEC158100200EF4 /* BookDetailVC */,
 				F550D3881CE9AD8A00200EF4 /* AuthVC */,
 			);
 			path = ViewControllers;
@@ -400,6 +407,33 @@
 				F550D3E61CEB288D00200EF4 /* iTunesArtwork@2x */,
 			);
 			path = AppResources;
+			sourceTree = "<group>";
+		};
+		F550D3F81CEC158100200EF4 /* BookDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				F550D3F91CEC159C00200EF4 /* BookDetailVC.h */,
+				F550D3FA1CEC159C00200EF4 /* BookDetailVC.m */,
+				F550D4001CEC198D00200EF4 /* BookDetailView */,
+				F550D3FC1CEC15B400200EF4 /* BookDetailModel */,
+			);
+			path = BookDetailVC;
+			sourceTree = "<group>";
+		};
+		F550D3FC1CEC15B400200EF4 /* BookDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				F550D3FD1CEC15C800200EF4 /* BookDetailDC.h */,
+				F550D3FE1CEC15C800200EF4 /* BookDetailDC.m */,
+			);
+			path = BookDetailModel;
+			sourceTree = "<group>";
+		};
+		F550D4001CEC198D00200EF4 /* BookDetailView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BookDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -600,9 +634,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F550D3871CE9807200200EF4 /* GlobeDefine.m in Sources */,
+				F550D3FF1CEC15C800200EF4 /* BookDetailDC.m in Sources */,
 				F550D3C71CE9E30800200EF4 /* RootDataController.m in Sources */,
 				F550D3B81CE9DD4200200EF4 /* UserBookModel.m in Sources */,
 				F550D3C41CE9E07C00200EF4 /* RootViewController.m in Sources */,
+				F550D3FB1CEC159C00200EF4 /* BookDetailVC.m in Sources */,
 				F550D34D1CE97BAE00200EF4 /* AppDelegate.m in Sources */,
 				F550D3D11CEB08DF00200EF4 /* UIImage+.m in Sources */,
 				F550D3D01CEB08DF00200EF4 /* UIDevice+.m in Sources */,

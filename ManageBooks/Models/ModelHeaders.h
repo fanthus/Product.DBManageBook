@@ -9,8 +9,8 @@
 #ifndef ModelHeaders_h
 #define ModelHeaders_h
 
-#import "DataManagerHeader.h"
 #import "BasicModelHeaders.h"
+#import "DataManagerHeader.h"
 #import "UrlBuilder.h"
 
 #endif /* ModelHeaders_h */

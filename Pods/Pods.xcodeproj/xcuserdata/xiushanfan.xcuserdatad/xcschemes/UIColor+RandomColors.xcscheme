@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D6AEF959F915687BCBACB523'
-               BlueprintName = 'AFNetworking'
+               BlueprintIdentifier = '2628387E84A4359913DF11AD'
+               BlueprintName = 'UIColor+RandomColors'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libAFNetworking.a'>
+               BuildableName = 'libUIColor+RandomColors.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
