@@ -50,6 +50,13 @@
 		F550D3F61CEB288D00200EF4 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = F550D3E61CEB288D00200EF4 /* iTunesArtwork@2x */; };
 		F550D3FB1CEC159C00200EF4 /* BookDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3FA1CEC159C00200EF4 /* BookDetailVC.m */; };
 		F550D3FF1CEC15C800200EF4 /* BookDetailDC.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3FE1CEC15C800200EF4 /* BookDetailDC.m */; };
+		F550D4021CEC577100200EF4 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F550D4011CEC577100200EF4 /* Contacts.framework */; };
+		F550D4051CEC65D500200EF4 /* FRMaskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4041CEC65D500200EF4 /* FRMaskImageView.m */; };
+		F550D4091CEC67A300200EF4 /* ReadTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4081CEC67A300200EF4 /* ReadTypeView.m */; };
+		F550D40C1CEC899300200EF4 /* AnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D40B1CEC899300200EF4 /* AnnotationView.m */; };
+		F550D40F1CEC8A8100200EF4 /* AnnotationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D40E1CEC8A8100200EF4 /* AnnotationCell.m */; };
+		F550D4161CEC957700200EF4 /* AnnotationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4151CEC957700200EF4 /* AnnotationModel.m */; };
+		F550D4191CEC958700200EF4 /* AnnotationAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4181CEC958700200EF4 /* AnnotationAuthor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +155,21 @@
 		F550D3FA1CEC159C00200EF4 /* BookDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailVC.m; sourceTree = "<group>"; };
 		F550D3FD1CEC15C800200EF4 /* BookDetailDC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailDC.h; sourceTree = "<group>"; };
 		F550D3FE1CEC15C800200EF4 /* BookDetailDC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailDC.m; sourceTree = "<group>"; };
+		F550D4011CEC577100200EF4 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		F550D4031CEC65D500200EF4 /* FRMaskImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMaskImageView.h; sourceTree = "<group>"; };
+		F550D4041CEC65D500200EF4 /* FRMaskImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMaskImageView.m; sourceTree = "<group>"; };
+		F550D4061CEC65E300200EF4 /* ThirdPartHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPartHeader.h; sourceTree = "<group>"; };
+		F550D4071CEC67A300200EF4 /* ReadTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTypeView.h; sourceTree = "<group>"; };
+		F550D4081CEC67A300200EF4 /* ReadTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTypeView.m; sourceTree = "<group>"; };
+		F550D40A1CEC899300200EF4 /* AnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationView.h; sourceTree = "<group>"; };
+		F550D40B1CEC899300200EF4 /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
+		F550D40D1CEC8A8100200EF4 /* AnnotationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationCell.h; sourceTree = "<group>"; };
+		F550D40E1CEC8A8100200EF4 /* AnnotationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationCell.m; sourceTree = "<group>"; };
+		F550D4141CEC957700200EF4 /* AnnotationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationModel.h; sourceTree = "<group>"; };
+		F550D4151CEC957700200EF4 /* AnnotationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationModel.m; sourceTree = "<group>"; };
+		F550D4171CEC958700200EF4 /* AnnotationAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationAuthor.h; sourceTree = "<group>"; };
+		F550D4181CEC958700200EF4 /* AnnotationAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationAuthor.m; sourceTree = "<group>"; };
+		F550D41A1CEC965B00200EF4 /* AnnotationModelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationModelHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F550D4021CEC577100200EF4 /* Contacts.framework in Frameworks */,
 				09F6DBB6959B2C17DF01FE38 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +211,7 @@
 		D843DAF548D55D7E89689BD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F550D4011CEC577100200EF4 /* Contacts.framework */,
 				DD1394F60A32027223426D95 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -339,6 +363,7 @@
 				F550D3B71CE9DD4200200EF4 /* UserBookModel.m */,
 				F550D3B21CE9DB9200200EF4 /* BookModel.h */,
 				F550D3B31CE9DB9200200EF4 /* BookModel.m */,
+				F550D4131CEC957700200EF4 /* AnnotationModel */,
 				F550D3A81CE9DB0500200EF4 /* BookDetailModel */,
 			);
 			path = BasicModels;
@@ -373,6 +398,9 @@
 		F550D3C81CEB08C100200EF4 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				F550D4061CEC65E300200EF4 /* ThirdPartHeader.h */,
+				F550D4031CEC65D500200EF4 /* FRMaskImageView.h */,
+				F550D4041CEC65D500200EF4 /* FRMaskImageView.m */,
 			);
 			path = ThirdPart;
 			sourceTree = "<group>";
@@ -432,8 +460,26 @@
 		F550D4001CEC198D00200EF4 /* BookDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				F550D4071CEC67A300200EF4 /* ReadTypeView.h */,
+				F550D4081CEC67A300200EF4 /* ReadTypeView.m */,
+				F550D40A1CEC899300200EF4 /* AnnotationView.h */,
+				F550D40B1CEC899300200EF4 /* AnnotationView.m */,
+				F550D40D1CEC8A8100200EF4 /* AnnotationCell.h */,
+				F550D40E1CEC8A8100200EF4 /* AnnotationCell.m */,
 			);
 			path = BookDetailView;
+			sourceTree = "<group>";
+		};
+		F550D4131CEC957700200EF4 /* AnnotationModel */ = {
+			isa = PBXGroup;
+			children = (
+				F550D41A1CEC965B00200EF4 /* AnnotationModelHeader.h */,
+				F550D4141CEC957700200EF4 /* AnnotationModel.h */,
+				F550D4151CEC957700200EF4 /* AnnotationModel.m */,
+				F550D4171CEC958700200EF4 /* AnnotationAuthor.h */,
+				F550D4181CEC958700200EF4 /* AnnotationAuthor.m */,
+			);
+			path = AnnotationModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,10 +679,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F550D4051CEC65D500200EF4 /* FRMaskImageView.m in Sources */,
+				F550D40C1CEC899300200EF4 /* AnnotationView.m in Sources */,
 				F550D3871CE9807200200EF4 /* GlobeDefine.m in Sources */,
+				F550D4161CEC957700200EF4 /* AnnotationModel.m in Sources */,
+				F550D4191CEC958700200EF4 /* AnnotationAuthor.m in Sources */,
 				F550D3FF1CEC15C800200EF4 /* BookDetailDC.m in Sources */,
 				F550D3C71CE9E30800200EF4 /* RootDataController.m in Sources */,
 				F550D3B81CE9DD4200200EF4 /* UserBookModel.m in Sources */,
+				F550D40F1CEC8A8100200EF4 /* AnnotationCell.m in Sources */,
 				F550D3C41CE9E07C00200EF4 /* RootViewController.m in Sources */,
 				F550D3FB1CEC159C00200EF4 /* BookDetailVC.m in Sources */,
 				F550D34D1CE97BAE00200EF4 /* AppDelegate.m in Sources */,
@@ -649,6 +700,7 @@
 				F550D3A11CE9B86400200EF4 /* DataStore.m in Sources */,
 				F550D3B11CE9DB5100200EF4 /* BImageModel.m in Sources */,
 				F550D3951CE9B0CC00200EF4 /* AuthDataController.m in Sources */,
+				F550D4091CEC67A300200EF4 /* ReadTypeView.m in Sources */,
 				F550D3A21CE9B86400200EF4 /* UserDataStore.m in Sources */,
 				F550D38B1CE9AD9C00200EF4 /* AuthViewController.m in Sources */,
 				F550D3D51CEB0A5500200EF4 /* BaseBookCell.m in Sources */,

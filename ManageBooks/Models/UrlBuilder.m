@@ -13,7 +13,9 @@
 
 #define kApiHostName        @"https://api.douban.com/"
 
-
+//PUT  https://api.douban.com/v2/book/:id/collection
+//参数	意义	备注
+//status	收藏状态	必填（想读：wish 在读：reading 或 doing 读过：read 或 done）
 
 @implementation UrlBuilder
 
@@ -35,7 +37,6 @@
         }
             break;
         case kDBAllBooks: {
-//            https://api.douban.com/v2/book/user/52549845/collections?status=wish
             NSString *paramUrlString = [self urlStringOfDict:dict];
             if (paramUrlString.length > 0) {
                 url = [NSString stringWithFormat:@"%@v2/book/user/%@/collections?%@",kApiHostName,[DataStore shareInstance].userDataStore.userId,paramUrlString];
@@ -43,6 +44,14 @@
             else {
                 url = [NSString stringWithFormat:@"%@v2/book/user/%@/collections",kApiHostName,[DataStore shareInstance].userDataStore.userId];
             }
+        }
+            break;
+        case kDBModifyBookCol: {
+            url = [NSString stringWithFormat:@"%@v2/book/%@/collection",kApiHostName,[dict objectForKey:kBookIDKey]];
+        }
+            break;
+        case kDBBookAnnotationiList: {
+            url = [NSString stringWithFormat:@"%@v2/book/%@/annotations",kApiHostName,[dict objectForKey:kBookIDKey]];
         }
             break;
         default:

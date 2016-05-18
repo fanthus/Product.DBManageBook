@@ -10,21 +10,22 @@
 #import "RootViewController.h"
 
 @interface AppDelegate () {
-    UIWindow *window;
+    
     DataStore *dataStore;
 }
+
 
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     dataStore = [DataStore shareInstance];
     RootViewController *rootVC = [[RootViewController alloc ] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
-    window.rootViewController = nav;
-    [window makeKeyAndVisible];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

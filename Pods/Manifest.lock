@@ -15,16 +15,19 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - ChineseColor (0.0.3)
+  - DCPathButton (2.1.3)
   - UIColor+RandomColors (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - ChineseColor (~> 0.0.3)
+  - DCPathButton (~> 2.1.3)
   - UIColor+RandomColors (~> 0.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   ChineseColor: 0eb0934905e48422e5d86ca66603ce2a6405c489
+  DCPathButton: 431bb93072e8d25bd0de0eaa0373e39d896a38e3
   UIColor+RandomColors: 9994c29099ba58bd09cfb46786d1b27d14d8f089
 
 COCOAPODS: 0.39.0

@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/ChineseColor" "${PODS_ROOT}/Headers/Public/UIColor+RandomColors"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/ChineseColor" -isystem "${PODS_ROOT}/Headers/Public/UIColor+RandomColors"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"ChineseColor" -l"UIColor+RandomColors" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/ChineseColor" "${PODS_ROOT}/Headers/Public/DCPathButton" "${PODS_ROOT}/Headers/Public/UIColor+RandomColors"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/ChineseColor" -isystem "${PODS_ROOT}/Headers/Public/DCPathButton" -isystem "${PODS_ROOT}/Headers/Public/UIColor+RandomColors"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"ChineseColor" -l"DCPathButton" -l"UIColor+RandomColors" -framework "AudioToolBox" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration"
 PODS_ROOT = ${SRCROOT}/Pods

@@ -12,5 +12,6 @@
 #import "UserBookModel.h"
 #import "BookModel.h"
 #import "BookDetailModelHeader.h"
+#import "AnnotationModelHeader.h"
 
 #endif /* BasicModelHeaders_h */

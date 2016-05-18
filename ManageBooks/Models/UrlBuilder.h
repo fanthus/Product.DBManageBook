@@ -10,11 +10,17 @@
 
 //https://www.douban.com/service/auth2/auth 获取authorization_code
 
+#define kBookIDKey  @"bookId"
+
+
 typedef enum {
     kDBAuth,
     kDBToken,
     //---
-    kDBAllBooks
+    kDBAllBooks,
+    //
+    kDBModifyBookCol,
+    kDBBookAnnotationiList
 }DBUrlType;
 
 typedef enum {

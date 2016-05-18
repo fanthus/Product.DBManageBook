@@ -7,6 +7,7 @@
 //
 
 #import "BookDetailDC.h"
+#import "AnnotationModel.h"
 
 @interface BookDetailDC() {
     AFHTTPSessionManager *sessionManager;
@@ -43,6 +44,47 @@
                     //
                 }];
 }
+
+- (void)modifyBookColWithUrl:(NSString *)url withDict:(NSDictionary *)dict {
+    [sessionManager PUT:url
+             parameters:dict
+                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSLog(@"modifyBookColWithUrl %@",url);
+                }
+                failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"modifyBookColWithUrl error = %@",error);
+                }];
+}
+
+- (void)fetchBookAnnotationWithUrl:(NSString *)url{
+    [sessionManager GET:url
+             parameters:nil
+               progress:^(NSProgress * _Nonnull downloadProgress) {
+                   //
+               }
+                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                    NSArray *annotationList = [self annotationListOfDict:responseDict];
+                    if ([self.delegate respondsToSelector:@selector(fetchAnnotationListFinished:)]) {
+                        [self.delegate fetchAnnotationListFinished:annotationList];
+                    }
+                }
+                failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    //
+                }];
+}
+
+
+- (NSArray *)annotationListOfDict:(NSDictionary *)responseDict {
+    NSMutableArray *finalAnnoArray = [NSMutableArray arrayWithCapacity:0];
+    NSArray *annoDictArray = [responseDict objectForKey:@"annotations"];
+    for (NSDictionary *annoDict in annoDictArray) {
+        AnnotationModel *annoModel = [AnnotationModel annotationModelFromDict:annoDict];
+        [finalAnnoArray addObject:annoModel];
+    }
+    return finalAnnoArray;
+}
+
 
 - (NSAttributedString *)bookSummary  {
     NSString *bookSummaryStr = [NSString stringWithFormat:@"简介:\n\t%@",self.userBookModel.bookModel.summary.length > 0 ? self.userBookModel.bookModel.summary : @"无信息"];

@@ -12,6 +12,8 @@
 
 - (void)downloadBigImageFinished:(UIImage *)bigImage;
 
+- (void)fetchAnnotationListFinished:(NSArray *)annotationList;
+
 @end
 
 
@@ -22,6 +24,10 @@
 
 
 - (void)downloadBigImageWithUrl:(NSString *)iu;
+
+- (void)modifyBookColWithUrl:(NSString *)url withDict:(NSDictionary *)dict;
+
+- (void)fetchBookAnnotationWithUrl:(NSString *)url;
 
 - (NSAttributedString *)bookSummary;
 
