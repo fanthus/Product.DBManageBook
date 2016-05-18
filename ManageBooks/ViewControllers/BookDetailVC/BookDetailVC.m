@@ -40,6 +40,8 @@
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareBook:)];
+    
     mainSV = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     mainSV.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:mainSV];
@@ -70,11 +72,11 @@
     UILabel *authorLabel = [labelArray objectAtIndex:1];
     bookTitleLabel.text = [NSString stringWithFormat:@"书名:%@",bookDetailDC.userBookModel.bookModel.title];
     bookTitleLabel.top = 10;
-    authorLabel.text = [NSString stringWithFormat:@"作者:%@",[self bookAuthorStringOfAuthors:bookDetailDC.userBookModel.bookModel.authors]];
+    authorLabel.text = [NSString stringWithFormat:@"作者:%@",[bookDetailDC bookAuthorStringOfAuthors:bookDetailDC.userBookModel.bookModel.authors]];
     authorLabel.top = bookTitleLabel.bottom + 3;
     
     
-    NSMutableArray *summaryArray = [NSMutableArray arrayWithObjects:[self bookSummary],[self authorSummary], nil];
+    NSMutableArray *summaryArray = [NSMutableArray arrayWithObjects:[bookDetailDC bookSummary],[bookDetailDC authorSummary], nil];
     NSMutableArray *summaryLabels = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i < 2; i++) {
         UILabel *introLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, bookBtn.bottom + 10, SCREEN_WIDTH - 20, 80)];
@@ -94,42 +96,21 @@
     UILabel *authorSummaryLabel = [summaryLabels objectAtIndex:1];
     authorSummaryLabel.top = bookSummaryLabel.bottom + 10;
     
+    CGFloat svContentHeight = authorSummaryLabel.bottom > (SCREEN_HEIGHT + 1) ? authorSummaryLabel.bottom : (SCREEN_HEIGHT + 1);
+    mainSV.contentSize = CGSizeMake(SCREEN_WIDTH, svContentHeight + 40);
     
-    mainSV.contentSize = CGSizeMake(SCREEN_WIDTH, authorSummaryLabel.bottom > (SCREEN_HEIGHT + 1) ? authorSummaryLabel.bottom : (SCREEN_HEIGHT + 1));
+}
+
+- (void)shareBook:(id)sender {
     
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[[bookDetailDC shareContent]]
+                                                                             applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeAirDrop];
+    [self presentViewController:activityVC animated:TRUE completion:nil];
 }
-
-
-- (NSAttributedString *)bookSummary  {
-    NSString *bookSummaryStr = [NSString stringWithFormat:@"简介:\n\t%@",bookDetailDC.userBookModel.bookModel.summary];
-    NSMutableAttributedString *bookSummary = [[NSMutableAttributedString alloc] initWithString:bookSummaryStr attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14.0f],NSFontAttributeName,[UIColor blackColor],NSForegroundColorAttributeName, nil]];
-    [bookSummary addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor baolan],NSForegroundColorAttributeName, nil] range:NSMakeRange(0, 3)];
-    return bookSummary;
-}
-
-- (NSAttributedString *)authorSummary {
-    NSString *authorSummaryStr = [NSString stringWithFormat:@"作者:\n\t%@",bookDetailDC.userBookModel.bookModel.author_intro];
-    NSMutableAttributedString *authorSummary = [[NSMutableAttributedString alloc] initWithString:authorSummaryStr attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14.0f],NSFontAttributeName,[UIColor blackColor],NSForegroundColorAttributeName, nil]];
-    [authorSummary addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor baolan],NSForegroundColorAttributeName, nil] range:NSMakeRange(0, 3)];
-    return authorSummary;
-}
-
-- (NSString *)bookAuthorStringOfAuthors:(NSArray *)authors {
-    if (authors.count == 0) { return @"暂无"; }
-    NSMutableString *author = [NSMutableString stringWithCapacity:0];
-    for (NSString *tAuthor in authors) {
-        [author appendString:tAuthor];
-        [author appendString:@"&"];
-    }
-    [author deleteCharactersInRange:NSMakeRange(author.length - 1, 1)];
-    return author;
-}
-
 
 - (void)showBigBookImage:(id)sender {
     
 }
-
-
 
 @end

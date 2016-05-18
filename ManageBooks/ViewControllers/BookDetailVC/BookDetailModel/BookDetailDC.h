@@ -23,4 +23,12 @@
 
 - (void)downloadBigImageWithUrl:(NSString *)iu;
 
+- (NSAttributedString *)bookSummary;
+
+- (NSAttributedString *)authorSummary;
+
+- (NSString *)bookAuthorStringOfAuthors:(NSArray *)authors;
+
+- (NSString *)shareContent;
+
 @end
