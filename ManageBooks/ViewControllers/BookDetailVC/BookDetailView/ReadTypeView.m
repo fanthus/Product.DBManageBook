@@ -8,7 +8,7 @@
 
 #import "ReadTypeView.h"
 
-#define kLeftMargin         10
+#define kLeftMargin         40
 #define kTopMargin          10
 #define kMiddleMargin       20
 
@@ -25,11 +25,11 @@
             btn.tag = ReadBaseTag + i;
             btn.frame = CGRectMake(kLeftMargin + i*kMiddleMargin + i*buttonBorder, kTopMargin, buttonBorder, buttonBorder);
             btn.layer.borderColor = [UIColor whiteColor].CGColor;
-            btn.layer.cornerRadius = 50.0f;
+            btn.layer.cornerRadius = 42.0f;
             btn.layer.borderWidth = 3.0;
             [btn setTitleColor:[UIColor shiqing] forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
-            [btn setBackgroundColor:[UIColor yase]];
+            [btn setBackgroundColor:[UIColor xiangyabai]];
             [btn addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
             [btns addObject:btn];
             [self addSubview:btn];

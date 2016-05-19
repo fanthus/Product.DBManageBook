@@ -9,8 +9,11 @@
 #ifndef ModelHeaders_h
 #define ModelHeaders_h
 
+#import "MBFileManager.h"
+#import "DBManagerHeader.h"
 #import "BasicModelHeaders.h"
 #import "DataManagerHeader.h"
 #import "UrlBuilder.h"
+#import "ProgressModel.h"
 
 #endif /* ModelHeaders_h */

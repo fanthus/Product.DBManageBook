@@ -21,7 +21,7 @@
     if (self) {
         self.avatarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.avatarBtn.frame = CGRectMake(kLeftMargin, kTopMargin, 40, 40);
-        self.avatarBtn.layer.cornerRadius = 15.0f;
+        self.avatarBtn.layer.cornerRadius = 20.0f;
         self.avatarBtn.clipsToBounds = YES;
         [self.avatarBtn addTarget:self action:@selector(jumpToUserPage:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.avatarBtn];

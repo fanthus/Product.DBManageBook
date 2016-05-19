@@ -27,7 +27,7 @@
 //"expires_in" = 604799;
 //"refresh_token" = 57de2f38172d8e65079a8da84588ab2f;
 
-@interface RootViewController () <UIWebViewDelegate,AuthProtocol,UITableViewDelegate,UITableViewDataSource,RootDataProtocol> {
+@interface RootViewController () <UIWebViewDelegate,AuthProtocol,UITableViewDelegate,UITableViewDataSource,RootDataProtocol,ProgressVCDelegate> {
     AuthViewController *authVC;
     UINavigationController *authNav;
     UIButton *authButton;
@@ -48,7 +48,7 @@
     self = [super init];
     if (self) {
         dataStore = [DataStore shareInstance];
-        rootDC = [[RootDataController  alloc] init];
+        rootDC = [[RootDataController alloc] init];
         rootDC.delegate = self;
     }
     return self;
@@ -84,6 +84,7 @@
     bookListTV.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:bookListTV];
     bookListTV.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    [rootDC fetchAllBooksWithType:fetchType];
 }
 
 - (void)segChanged:(UISegmentedControl *)segControl {
@@ -110,7 +111,6 @@
         authButton.hidden = YES;
         bookListTV.hidden = NO;
         self.navigationItem.titleView.hidden = NO;
-        [rootDC fetchAllBooksWithType:fetchType];
     }
     else {
         authButton.hidden = NO;
@@ -134,8 +134,7 @@
     //
 }
 
-- (void)requestDBAccessToken:(UIButton *)button
-{
+- (void)requestDBAccessToken:(UIButton *)button {
     
 }
 
@@ -179,7 +178,7 @@
     BaseBookCell  *cell = (BaseBookCell *)[tableView cellForRowAtIndexPath:indexPath];
     NSString *cellId = @"BookCell";
     if (cell == nil) {
-        cell= [[BaseBookCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[BaseBookCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     UserBookModel *uBookModel = [bookList objectAtIndex:indexPath.row];
     [cell.bookIV setImageWithURL:[NSURL URLWithString:uBookModel.bookModel.image]];
@@ -192,6 +191,13 @@
     [authorStr deleteCharactersInRange:NSMakeRange(authorStr.length-1, 1)];
     cell.authorLabel.text = authorStr;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@",uBookModel.bookModel.price];
+    ProgressModel *progressModel = [ProgressManager progressModelOfBookID:uBookModel.bookModel.bookId];
+    cell.progress = progressModel.progress;
+    [cell tapProgressBlock:^{
+        ProgressVC *progressVC  = [[ProgressVC alloc] initWithBookModel:uBookModel.bookModel];
+        progressVC.delegate = self;
+        [self.navigationController pushViewController:progressVC animated:YES];
+    }];
     return cell;
 }
 
@@ -199,6 +205,19 @@
     return bookList.count;
 }
 
+#pragma mark - ProgressVCDelegate
+
+- (void)finishSetBookID:(NSString *)bookId withProgress:(CGFloat)progress {
+    NSInteger index = 0;
+    for (int i = 0;i < bookList.count;i ++) {
+        UserBookModel *uBookModel = [bookList objectAtIndex:i];
+        if ([bookId isEqualToString:uBookModel.bookModel.bookId]) {
+            index = i;
+        }
+    }
+    BaseBookCell *cell = [bookListTV cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    cell.progress = progress;
+}
 
 #pragma mark - RootDataProtocol 
 

@@ -11,6 +11,7 @@
 
 #import "UserBookModel.h"
 #import "BookModel.h"
+#import "ProgressModel.h"
 #import "BookDetailModelHeader.h"
 #import "AnnotationModelHeader.h"
 

@@ -3,7 +3,7 @@
 //  Calendar
 //
 //  Created by xiushan.fan on 28/8/14.
-//  Copyright (c) 2014年 Smartisan. All rights reserved.
+//  Copyright (c) 2014年 FRANK. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

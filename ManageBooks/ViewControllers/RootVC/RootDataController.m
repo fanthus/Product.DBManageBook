@@ -65,7 +65,6 @@
             [fetchParamDict setObject:@"reading" forKey:@"status"];
         }
             break;
-            
         default:
             break;
     }
@@ -81,9 +80,6 @@
     }
     return userBookModelArray;
 }
-
-
-
 
 
 @end

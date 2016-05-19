@@ -26,6 +26,7 @@
         self.layer.cornerRadius = 5.0f;
         self.delegate = self;
         self.dataSource = self;
+        self.separatorInset = UIEdgeInsetsZero;
     }
     return self;
 }

@@ -17,8 +17,8 @@
 #import <UIColor+ChineseColor.h>
 #import <DCPathButton.h>
 #import <DCPathItemButton.h>
-#import "ModelHeaders.h"
 #import "ThirdPartHeader.h"
+#import "ModelHeaders.h"
 #import "ViewControllerHeaders.h"
 #import "UtilityHeaders.h"
 

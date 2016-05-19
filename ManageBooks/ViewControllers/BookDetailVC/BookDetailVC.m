@@ -100,16 +100,15 @@
     UILabel *authorSummaryLabel = [summaryLabels objectAtIndex:1];
     authorSummaryLabel.top = bookSummaryLabel.bottom + 10;
 
-    DCPathButton *pathBtn = [[DCPathButton alloc] initWithButtonFrame:CGRectMake(SCREEN_WIDTH - 10 - 40, mainSV.bottom - 10 - 40 - 64, 40, 40)
-                                                          centerImage:[UIImage imageNamed:@"green"]
+    DCPathButton *pathBtn = [[DCPathButton alloc] initWithButtonFrame:CGRectMake(SCREEN_WIDTH - 10 - 40, mainSV.bottom - 10 - 40 - 64, 25, 25)
+                                                          centerImage:[UIImage imageNamed:@"more"]
                                                      highlightedImage:[UIImage imageNamed:@""]];
     pathBtn.delegate = self;
     pathBtn.bloomDirection = kDCPathButtonBloomDirectionTopLeft;
-    DCPathItemButton *readTypeBtn = [[DCPathItemButton alloc] initWithImage:[UIImage imageNamed:@"green"] highlightedImage:nil backgroundImage:nil backgroundHighlightedImage:nil];
-    DCPathItemButton *commentListBtn = [[DCPathItemButton alloc] initWithImage:[UIImage imageNamed:@"green"] highlightedImage:nil backgroundImage:nil backgroundHighlightedImage:nil];
-    DCPathItemButton *myCommentBtn = [[DCPathItemButton alloc] initWithImage:[UIImage imageNamed:@"green"] highlightedImage:nil backgroundImage:nil backgroundHighlightedImage:nil];
+    DCPathItemButton *readTypeBtn = [[DCPathItemButton alloc] initWithImage:[UIImage imageNamed:@"moustache"] highlightedImage:nil backgroundImage:nil backgroundHighlightedImage:nil];
+    DCPathItemButton *commentListBtn = [[DCPathItemButton alloc] initWithImage:[UIImage imageNamed:@"see"] highlightedImage:nil backgroundImage:nil backgroundHighlightedImage:nil];
     
-    [pathBtn addPathItems:@[readTypeBtn,commentListBtn,myCommentBtn]];
+    [pathBtn addPathItems:@[readTypeBtn,commentListBtn]];
     [self.view addSubview:pathBtn];
     
     CGFloat svContentHeight = authorSummaryLabel.bottom > (SCREEN_HEIGHT + 40) ? authorSummaryLabel.bottom : (SCREEN_HEIGHT + 40);
@@ -147,10 +146,6 @@
         [annotationView fetchAnnotationList];
         [FRMaskImageViewManager showDisplayedViewOnmaskView:annotationView withOrigin:CGPointMake(10, 50) maskAlpha:0.3 animation:YES];
     }
-    else if (itemButtonIndex == 2) {
-        //
-    }
-    
 }
 
 #pragma mark - AnnotationViewProtocol 

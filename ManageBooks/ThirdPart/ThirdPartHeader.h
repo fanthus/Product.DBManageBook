@@ -10,5 +10,8 @@
 #define ThirdPartHeader_h
 
 #import "FRMaskImageView.h"
+#import "DACircularProgressView.h"
+#import "DALabeledCircularProgressView.h"
+#import "SqliteHeaders.h"
 
 #endif /* ThirdPartHeader_h */
