@@ -31,14 +31,14 @@
 
 + (SqliteResult *)updateProgressModel:(ProgressModel *)progressModel {
     NSDictionary *dict = [progressModel dictOfProgressModel];
-    SqliteParam *param = [SqlitePrepare updateSqlWithTableName:kProgressTableName dict:dict condition:[NSString stringWithFormat:@"progressId = %ld",progressModel.progressId]];
+    SqliteParam *param = [SqlitePrepare updateSqlWithTableName:kProgressTableName dict:dict condition:[NSString stringWithFormat:@"progressId = %ld",(long)progressModel.progressId]];
     SqliteDriver *driver = [SqliteDriver driverWithPath:[MBFileManager pathOfFileType:kDBFile] andTable:kProgressTableName];
     SqliteResult *result = [driver excuteWithParam:param];
     return result;
 }
 
 + (ProgressModel *)progressModelOfID:(NSInteger)progressId {
-    SqliteParam *param = [SqlitePrepare selectSqlWithTableName:kProgressTableName fieldArray:nil condition:[NSString stringWithFormat:@"progressId = %ld",progressId]];
+    SqliteParam *param = [SqlitePrepare selectSqlWithTableName:kProgressTableName fieldArray:nil condition:[NSString stringWithFormat:@"progressId = %ld",(long)progressId]];
     SqliteDriver *driver = [SqliteDriver driverWithPath:[MBFileManager pathOfFileType:kDBFile] andTable:kProgressTableName];
     SqliteResult *result = [driver selectWithParam:param];
     ProgressModel *progressModel = nil;

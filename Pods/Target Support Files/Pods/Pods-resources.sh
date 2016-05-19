@@ -61,11 +61,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "DCPathButton/DCPathButton/Sounds/bloom.caf"
   install_resource "DCPathButton/DCPathButton/Sounds/fold.caf"
   install_resource "DCPathButton/DCPathButton/Sounds/selected.caf"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "DCPathButton/DCPathButton/Sounds/bloom.caf"
   install_resource "DCPathButton/DCPathButton/Sounds/fold.caf"
   install_resource "DCPathButton/DCPathButton/Sounds/selected.caf"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

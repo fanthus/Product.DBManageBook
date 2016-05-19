@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D27ED7FC3E2625DB4E3F8E99'
+               BlueprintIdentifier = '946C5C34B099FAA049488097'
                BlueprintName = 'DCPathButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libDCPathButton.a'>

@@ -15,6 +15,7 @@
 + (AnnotationModel *)annotationModelFromDict:(NSDictionary *)dict {
     AnnotationModel *annotationModel = [[AnnotationModel alloc] init];
     annotationModel.abstract = [dict objectForKey:@"abstract"];
+    annotationModel.content = [dict objectForKey:@"content"];
     annotationModel.author = [AnnotationAuthor annoAuthorFromDict:[dict objectForKey:@"author_user"]];
     return annotationModel;
 }

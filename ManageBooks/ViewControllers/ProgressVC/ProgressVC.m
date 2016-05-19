@@ -106,6 +106,7 @@
     for (int i = 0; i < 2; i++) {
         UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 50)/2, 0, 100, 50)];
         tf.delegate = self;
+        tf.textAlignment = NSTextAlignmentCenter;
         tf.layer.cornerRadius = 6.0f;
         tf.backgroundColor = [UIColor nenlv];
         tf.font = [UIFont systemFontOfSize:24];
@@ -124,10 +125,10 @@
 
 - (void)fillAllView {
     ProgressModel *progressModel = [ProgressManager progressModelOfBookID:bookModel.bookId];
-    self.curPageTf.text = [NSString stringWithFormat:@"%ld",progressModel.curPage];
-    self.tolPageTf.text = [NSString stringWithFormat:@"%ld",progressModel.allPage];
-    self.prePomoTF.text = [NSString stringWithFormat:@"%ld",progressModel.allPomo];
-    self.curPomoTF.text = [NSString stringWithFormat:@"%ld",progressModel.curPomo];
+    self.curPageTf.text = [NSString stringWithFormat:@"%ld",(long)progressModel.curPage];
+    self.tolPageTf.text = [NSString stringWithFormat:@"%ld",(long)progressModel.allPage];
+    self.prePomoTF.text = [NSString stringWithFormat:@"%ld",(long)progressModel.allPomo];
+    self.curPomoTF.text = [NSString stringWithFormat:@"%ld",(long)progressModel.curPomo];
 }
 
 -(void)backToHome:(UIBarButtonItem *)sender {
@@ -179,7 +180,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == self.curPomoTF) {
         NSInteger curPage = [self.tolPageTf.text integerValue] * [self progressOfBook];
-        self.curPageTf.text = [NSString stringWithFormat:@"%ld",curPage];
+        self.curPageTf.text = [NSString stringWithFormat:@"%ld",(long)curPage];
     }
     [self refreshPageTFFrame];
 }

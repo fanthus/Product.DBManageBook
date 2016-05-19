@@ -10,6 +10,7 @@
 #define DataManagerHeader_h
 
 #import "DataStore.h"
+#import "UserSetting.h"
 #import "UserDataStore.h"
 
 

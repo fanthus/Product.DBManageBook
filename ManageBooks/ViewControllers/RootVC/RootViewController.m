@@ -38,6 +38,8 @@
     DataStore *dataStore;
     RootDataController *rootDC;
     FetchType fetchType;
+    
+    MJRefreshFooter *refreshFooter;
 }
 
 @end
@@ -50,6 +52,7 @@
         dataStore = [DataStore shareInstance];
         rootDC = [[RootDataController alloc] init];
         rootDC.delegate = self;
+        bookList = [NSMutableArray arrayWithCapacity:0];
     }
     return self;
 }
@@ -63,8 +66,11 @@
     
     UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"想读",@"在读",@"读过"]];
     [segmentControl addTarget:self action:@selector(segChanged:) forControlEvents:UIControlEventValueChanged];
-    segmentControl.selectedSegmentIndex = 0;
+    segmentControl.selectedSegmentIndex = [self segIndexOfFetchType:dataStore.userSetting.fetchType];
     self.navigationItem.titleView = segmentControl;
+    
+    UIBarButtonItem *searchBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchBooks:)];
+    self.navigationItem.rightBarButtonItem = searchBtnItem;
     
     authButton = [UIButton buttonWithType:UIButtonTypeSystem];
     authButton.frame = CGRectMake((SCREEN_WIDTH - 200)/2 , 200, 200, 60);
@@ -84,12 +90,45 @@
     bookListTV.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:bookListTV];
     bookListTV.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [rootDC fetchAllBooksWithType:fetchType];
+    
+    refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore:)];
+    [bookListTV addSubview:refreshFooter];
+    
+    [rootDC fetchAllBooksWithType:dataStore.userSetting.fetchType dir:kFetchDirPre position:0];
 }
 
 - (void)segChanged:(UISegmentedControl *)segControl {
     fetchType = [self fetchTypeOfSegControl:segControl];
-    [rootDC fetchAllBooksWithType:fetchType];
+    dataStore.userSetting.fetchType = fetchType;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [rootDC fetchAllBooksWithType:fetchType dir:kFetchDirPre position:0];
+}
+
+- (void)searchBooks:(id)sender {
+    //
+}
+
+
+- (NSInteger)segIndexOfFetchType:(FetchType)tFetchType {
+    NSInteger index = 0;
+    switch (tFetchType) {
+        case kFetchWish:{
+            index = 0;
+        }
+            break;
+        case kFeatchReading:{
+            index = 1;
+        }
+            break;
+        case kFetchRead:{
+            index = 2;
+        }
+            break;
+        default:
+            break;
+    }
+    return index;
 }
 
 - (FetchType)fetchTypeOfSegControl:(UISegmentedControl *)segControl {
@@ -138,6 +177,10 @@
     
 }
 
+- (void)loadMore:(id)sender {
+    [rootDC fetchAllBooksWithType:fetchType dir:kFetchDirAft position:bookList.count];
+}
+
 #pragma mark - AuthProtocol 
 
 - (void)finishedGetToken:(NSDictionary *)tokenDict {
@@ -156,8 +199,7 @@
     //
     self.navigationItem.titleView.hidden = NO;
     bookListTV.hidden = NO;
-    
-    [rootDC fetchAllBooksWithType:kFetchWish];
+    [rootDC fetchAllBooksWithType:kFetchWish dir:kFetchDirPre position:0];
 }
 
 #pragma mark - UITableViewDelegate 
@@ -188,16 +230,23 @@
         [authorStr appendString:author];
         [authorStr appendString:@"&"];
     }
-    [authorStr deleteCharactersInRange:NSMakeRange(authorStr.length-1, 1)];
+    if (authorStr.length > 0) {
+        [authorStr deleteCharactersInRange:NSMakeRange(authorStr.length-1, 1)];
+    }
     cell.authorLabel.text = authorStr;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@",uBookModel.bookModel.price];
-    ProgressModel *progressModel = [ProgressManager progressModelOfBookID:uBookModel.bookModel.bookId];
-    cell.progress = progressModel.progress;
-    [cell tapProgressBlock:^{
-        ProgressVC *progressVC  = [[ProgressVC alloc] initWithBookModel:uBookModel.bookModel];
-        progressVC.delegate = self;
-        [self.navigationController pushViewController:progressVC animated:YES];
-    }];
+    if (fetchType == kFeatchReading) {
+        ProgressModel *progressModel = [ProgressManager progressModelOfBookID:uBookModel.bookModel.bookId];
+        cell.progress = progressModel.progress;
+        [cell tapProgressBlock:^{
+            ProgressVC *progressVC  = [[ProgressVC alloc] initWithBookModel:uBookModel.bookModel];
+            progressVC.delegate = self;
+            [self.navigationController pushViewController:progressVC animated:YES];
+        }];
+    }
+    else {
+        cell.progressView.hidden = YES;
+    }
     return cell;
 }
 
@@ -221,10 +270,37 @@
 
 #pragma mark - RootDataProtocol 
 
-- (void)fetchAllBooksFinished:(NSArray *)allBooks {
-    bookList = [NSMutableArray arrayWithArray:allBooks];
+- (void)fetchAllBooksFinished:(NSArray *)allBooks withDir:(FetchDir)fetchDir{
+    [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+    if (allBooks.count == 0) {
+        [refreshFooter endRefreshingWithNoMoreData];
+    }
+    else {
+        [refreshFooter endRefreshing];
+    }
+    switch (fetchDir) {
+        case kFetchDirAft:
+        {
+            [bookList addObjectsFromArray:allBooks];
+        }
+            break;
+        case kFetchDirPre: {
+            [bookList removeAllObjects];
+            [bookList addObjectsFromArray:allBooks];
+        }
+        default:
+            break;
+    }
     [bookListTV reloadData];
 }
 
+- (void)fetchBooksFailed {
+    [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+    MBProgressHUD *textHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    textHud.mode = MBProgressHUDModeText;
+    textHud.labelText = @"获取信息失败";
+    [textHud hide:YES afterDelay:0.5];
+    
+}
 
 @end

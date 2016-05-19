@@ -9,9 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "RootViewController.h"
 
+typedef enum {
+    kFetchDirPre,
+    kFetchDirAft,
+}FetchDir;
+
 @protocol RootDataProtocol <NSObject>
 
-- (void)fetchAllBooksFinished:(NSArray *)allBooks;
+- (void)fetchAllBooksFinished:(NSArray *)allBooks withDir:(FetchDir)fetchDir;
+
+- (void)fetchBooksFailed;
 
 @end
 
@@ -19,6 +26,6 @@
 
 @property (nonatomic, assign) id<RootDataProtocol> delegate;
 
-- (void)fetchAllBooksWithType:(FetchType)fetchType;
+- (void)fetchAllBooksWithType:(FetchType)fetchType dir:(FetchDir)fetchDir position:(NSInteger)position;
 
 @end

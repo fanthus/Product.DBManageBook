@@ -27,7 +27,6 @@
 		F550D3B41CE9DB9200200EF4 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3B31CE9DB9200200EF4 /* BookModel.m */; };
 		F550D3B81CE9DD4200200EF4 /* UserBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3B71CE9DD4200200EF4 /* UserBookModel.m */; };
 		F550D3C41CE9E07C00200EF4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3C31CE9E07C00200EF4 /* RootViewController.m */; };
-		F550D3C71CE9E30800200EF4 /* RootDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3C61CE9E30800200EF4 /* RootDataController.m */; };
 		F550D3CB1CEB08C900200EF4 /* UIView+.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3CA1CEB08C900200EF4 /* UIView+.m */; };
 		F550D3D01CEB08DF00200EF4 /* UIDevice+.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3CD1CEB08DF00200EF4 /* UIDevice+.m */; };
 		F550D3D11CEB08DF00200EF4 /* UIImage+.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D3CF1CEB08DF00200EF4 /* UIImage+.m */; };
@@ -69,6 +68,8 @@
 		F550D43E1CED9AA700200EF4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F550D43D1CED9AA700200EF4 /* libsqlite3.tbd */; };
 		F550D4421CED9CC900200EF4 /* ProgressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4411CED9CC900200EF4 /* ProgressManager.m */; };
 		F550D4481CED9E2000200EF4 /* MBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D4471CED9E2000200EF4 /* MBFileManager.m */; };
+		F550D44C1CEDB69500200EF4 /* RootDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D44B1CEDB69500200EF4 /* RootDataController.m */; };
+		F550D44F1CEDE6FD00200EF4 /* UserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F550D44E1CEDE6FD00200EF4 /* UserSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,8 +138,6 @@
 		F550D3BC1CE9DE4100200EF4 /* BasicModelHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicModelHeaders.h; sourceTree = "<group>"; };
 		F550D3C21CE9E07C00200EF4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F550D3C31CE9E07C00200EF4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		F550D3C51CE9E30800200EF4 /* RootDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootDataController.h; sourceTree = "<group>"; };
-		F550D3C61CE9E30800200EF4 /* RootDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootDataController.m; sourceTree = "<group>"; };
 		F550D3C91CEB08C900200EF4 /* UIView+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+.h"; sourceTree = "<group>"; };
 		F550D3CA1CEB08C900200EF4 /* UIView+.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+.m"; sourceTree = "<group>"; };
 		F550D3CC1CEB08DF00200EF4 /* UIDevice+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+.h"; sourceTree = "<group>"; };
@@ -207,6 +206,10 @@
 		F550D4431CED9CEC00200EF4 /* DBManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManagerHeader.h; sourceTree = "<group>"; };
 		F550D4461CED9E2000200EF4 /* MBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFileManager.h; sourceTree = "<group>"; };
 		F550D4471CED9E2000200EF4 /* MBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFileManager.m; sourceTree = "<group>"; };
+		F550D44A1CEDB69500200EF4 /* RootDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootDataController.h; sourceTree = "<group>"; };
+		F550D44B1CEDB69500200EF4 /* RootDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootDataController.m; sourceTree = "<group>"; };
+		F550D44D1CEDE6FD00200EF4 /* UserSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSetting.h; sourceTree = "<group>"; };
+		F550D44E1CEDE6FD00200EF4 /* UserSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +394,8 @@
 				F550D3A31CE9B87C00200EF4 /* DataManagerHeader.h */,
 				F550D39D1CE9B86400200EF4 /* DataStore.h */,
 				F550D39E1CE9B86400200EF4 /* DataStore.m */,
+				F550D44D1CEDE6FD00200EF4 /* UserSetting.h */,
+				F550D44E1CEDE6FD00200EF4 /* UserSetting.m */,
 				F550D39F1CE9B86400200EF4 /* UserDataStore.h */,
 				F550D3A01CE9B86400200EF4 /* UserDataStore.m */,
 			);
@@ -431,8 +436,7 @@
 			children = (
 				F550D3C21CE9E07C00200EF4 /* RootViewController.h */,
 				F550D3C31CE9E07C00200EF4 /* RootViewController.m */,
-				F550D3C51CE9E30800200EF4 /* RootDataController.h */,
-				F550D3C61CE9E30800200EF4 /* RootDataController.m */,
+				F550D4491CEDB69500200EF4 /* RootDC */,
 				F550D3D21CEB0A2500200EF4 /* RootViews */,
 			);
 			path = RootVC;
@@ -599,6 +603,15 @@
 				F550D4471CED9E2000200EF4 /* MBFileManager.m */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		F550D4491CEDB69500200EF4 /* RootDC */ = {
+			isa = PBXGroup;
+			children = (
+				F550D44A1CEDB69500200EF4 /* RootDataController.h */,
+				F550D44B1CEDB69500200EF4 /* RootDataController.m */,
+			);
+			path = RootDC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -810,7 +823,6 @@
 				F550D4201CED61FB00200EF4 /* DACircularProgressView.m in Sources */,
 				F550D4381CED9A6A00200EF4 /* SqliteDriver.m in Sources */,
 				F550D3FF1CEC15C800200EF4 /* BookDetailDC.m in Sources */,
-				F550D3C71CE9E30800200EF4 /* RootDataController.m in Sources */,
 				F550D3B81CE9DD4200200EF4 /* UserBookModel.m in Sources */,
 				F550D40F1CEC8A8100200EF4 /* AnnotationCell.m in Sources */,
 				F550D3C41CE9E07C00200EF4 /* RootViewController.m in Sources */,
@@ -834,7 +846,9 @@
 				F550D38B1CE9AD9C00200EF4 /* AuthViewController.m in Sources */,
 				F550D3D51CEB0A5500200EF4 /* BaseBookCell.m in Sources */,
 				F550D4391CED9A6A00200EF4 /* SqliteMasterModel.m in Sources */,
+				F550D44C1CEDB69500200EF4 /* RootDataController.m in Sources */,
 				F550D34A1CE97BAE00200EF4 /* main.m in Sources */,
+				F550D44F1CEDE6FD00200EF4 /* UserSetting.m in Sources */,
 				F550D3AB1CE9DB0500200EF4 /* BTagModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

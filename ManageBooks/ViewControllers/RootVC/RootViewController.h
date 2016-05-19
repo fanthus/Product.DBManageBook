@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    kFetchWish,
-    kFetchRead,
-    kFeatchReading
-}FetchType;
 
 @interface RootViewController : UIViewController
 

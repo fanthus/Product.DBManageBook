@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) AnnotationAuthor *author;
 @property (nonatomic, strong) NSString *abstract;
+@property (nonatomic, strong) NSString *content;
 
 
 + (AnnotationModel *)annotationModelFromDict:(NSDictionary *)dict;

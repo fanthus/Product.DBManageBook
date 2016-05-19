@@ -25,6 +25,7 @@ static DataStore *dataStore;
     self = [super init];
     if (self) {
         self.userDataStore = [UserDataStore loadUserDataStore];
+        self.userSetting = [[UserSetting alloc] init];
     }
     return self;
 }

@@ -30,25 +30,34 @@
     return self;
 }
 
-- (void)fetchAllBooksWithType:(FetchType)fetchType {
-    NSString *allBooksUrl = [UrlBuilder urlWithType:kDBAllBooks andDict:[self paramDictOfFetchType:fetchType]];
+- (void)fetchAllBooksWithType:(FetchType)fetchType dir:(FetchDir)fetchDir position:(NSInteger)position {
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:[self paramDictOfFetchType:fetchType]];
+    if (fetchDir == kFetchDirPre) {
+        //
+    }
+    else {
+        [paramDict setObject:[NSString stringWithFormat:@"%ld",(long)position] forKey:@"start"];
+    }
+    
+    NSString *allBooksUrl = [UrlBuilder urlWithType:kDBAllBooks andDict:nil];
     [sessionManager GET:allBooksUrl
-             parameters:nil
+             parameters:paramDict
                progress:^(NSProgress * _Nonnull downloadProgress) {
                    //
                }
                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                     NSArray *books = [self parseResponse:dict];
-                    if ([self.delegate respondsToSelector:@selector(fetchAllBooksFinished:)]) {
-                        [self.delegate fetchAllBooksFinished:books];
+                    if ([self.delegate respondsToSelector:@selector(fetchAllBooksFinished:withDir:)]) {
+                        [self.delegate fetchAllBooksFinished:books withDir:fetchDir];
                     }
                 }
                 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    //
+                    if ([self.delegate respondsToSelector:@selector(fetchBooksFailed)]) {
+                        [self.delegate fetchBooksFailed];
+                    }
                 }];
 }
-
 
 - (NSDictionary *)paramDictOfFetchType:(FetchType)fetchType {
     NSMutableDictionary *fetchParamDict = [NSMutableDictionary dictionaryWithCapacity:0];

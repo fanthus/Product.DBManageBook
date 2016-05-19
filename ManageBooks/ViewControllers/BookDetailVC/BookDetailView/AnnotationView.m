@@ -44,6 +44,7 @@
 
 #pragma mark - UITableViewDelegate
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return annotationArray.count;
 }
@@ -57,7 +58,7 @@
     AnnotationCell *annotationCell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (annotationCell == nil) {
         annotationCell = [[AnnotationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-        
+        annotationCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     AnnotationModel *annotationModel = [annotationArray objectAtIndex:indexPath.row];
     annotationCell.annoModel = annotationModel;

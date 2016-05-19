@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class UserDataStore;
+@class UserDataStore,UserSetting;
 
 @interface DataStore : NSObject
 
+@property (nonatomic, strong) UserSetting *userSetting;
 @property (nonatomic, strong) UserDataStore *userDataStore;
 
 + (DataStore *)shareInstance;

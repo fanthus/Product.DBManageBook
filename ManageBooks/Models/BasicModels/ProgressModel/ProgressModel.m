@@ -30,15 +30,16 @@
 - (NSDictionary *)dictOfProgressModel {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
     [dict setObject:self.bookId forKey:kBookIdKey];
-    [dict setObject:[NSString stringWithFormat:@"%ld",self.allPomo] forKey:kAllPomoKey];
-    [dict setObject:[NSString stringWithFormat:@"%ld",self.curPomo] forKey:kCurPomoKey];
-    [dict setObject:[NSString stringWithFormat:@"%ld",self.allPage] forKey:kAllPageKey];
-    [dict setObject:[NSString stringWithFormat:@"%ld",self.curPage] forKey:kCurPageKey];
+    [dict setObject:[NSString stringWithFormat:@"%ld",(long)self.allPomo] forKey:kAllPomoKey];
+    [dict setObject:[NSString stringWithFormat:@"%ld",(long)self.curPomo] forKey:kCurPomoKey];
+    [dict setObject:[NSString stringWithFormat:@"%ld",(long)self.allPage] forKey:kAllPageKey];
+    [dict setObject:[NSString stringWithFormat:@"%ld",(long)self.curPage] forKey:kCurPageKey];
     return dict;
 }
 
 + (ProgressModel *)progressModelOfDict:(NSDictionary *)dict {
     ProgressModel *progressModel = [[ProgressModel alloc] init];
+    progressModel.progressId = [[dict objectForKey:kProgressIdKey] integerValue];
     progressModel.bookId = [dict objectForKey:kBookIdKey];
     progressModel.allPomo = [[dict objectForKey:kAllPomoKey] integerValue];
     progressModel.curPomo = [[dict objectForKey:kCurPomoKey] integerValue];
